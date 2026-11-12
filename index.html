@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff4ef">
+  <title>Апа, туулган күнүңүз менен! ❤️</title>
+  <style>
+    :root {
+      --rose: #d95e83;
+      --rose-dark: #a73d61;
+      --ink: #603849;
+      --soft: #fff8f5;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(145deg, #fff1ed 0%, #fff9f6 50%, #ffe7ee 100%);
+      overflow-x: hidden;
+    }
+
+    .glow {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: .32;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow.one { background: #ffc3d5; top: -180px; left: -160px; }
+    .glow.two { background: #ffdca4; bottom: -170px; right: -160px; }
+
+    .heart {
+      position: fixed;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .24;
+      animation: float 8s ease-in-out infinite;
+    }
+    .h1 { left: 6%; top: 17%; font-size: 38px; }
+    .h2 { right: 8%; top: 29%; font-size: 28px; animation-delay: -3s; }
+    .h3 { left: 12%; bottom: 16%; font-size: 24px; animation-delay: -5s; }
+    .h4 { right: 11%; bottom: 12%; font-size: 40px; animation-delay: -2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-7deg); }
+      50% { transform: translateY(-24px) rotate(9deg); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 36px, 880px);
+      margin: 0 auto;
+      padding: 42px 0 50px;
+    }
+
+    .eyebrow {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--rose-dark);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 25px 10px 30px;
+    }
+
+    .flowers {
+      font-size: clamp(54px, 10vw, 82px);
+      margin: 12px 0;
+      animation: flowerMove 4s ease-in-out infinite;
+      filter: drop-shadow(0 8px 13px #e698aa44);
+    }
+
+    @keyframes flowerMove {
+      0%, 100% { transform: rotate(-4deg) scale(1); }
+      50% { transform: rotate(5deg) scale(1.04); }
+    }
+
+    h1 {
+      margin: 13px 0 16px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(40px, 8vw, 76px);
+      line-height: 1.1;
+      letter-spacing: -.035em;
+      color: var(--rose-dark);
+    }
+    h1 span { color: var(--rose); }
+
+    .lead {
+      margin: 0 auto;
+      max-width: 560px;
+      font-size: clamp(17px, 3vw, 20px);
+      line-height: 1.7;
+    }
+
+    .date {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 10px 20px;
+      background: #ffffffaa;
+      border: 1px solid #f1cbd6;
+      border-radius: 100px;
+      color: var(--rose-dark);
+      font-weight: 600;
+      letter-spacing: .4px;
+    }
+
+    .main-card {
+      margin: 20px auto 0;
+      padding: clamp(24px, 6vw, 50px);
+      background: #ffffffc9;
+      backdrop-filter: blur(12px);
+      border: 1px solid #fff;
+      border-radius: 30px;
+      box-shadow: 0 20px 55px #a5496920;
+      text-align: center;
+    }
+
+    .tiny-title {
+      color: var(--rose-dark);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(29px, 5vw, 43px);
+      margin: 12px 0 20px;
+      line-height: 1.2;
+    }
+
+    .message {
+      font-size: 18px;
+      line-height: 1.9;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      margin: 28px auto;
+      width: 105px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #d95e83, transparent);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .reason {
+      background: #fff5f6;
+      border: 1px solid #f9dee6;
+      border-radius: 22px;
+      padding: 23px 17px;
+    }
+    .reason .emoji { font-size: 34px; }
+    .reason h3 { color: var(--rose-dark); margin: 13px 0 9px; font-size: 18px; }
+    .reason p { margin: 0; font-size: 14px; line-height: 1.6; }
+
+    .gift {
+      margin-top: 25px;
+      padding: 38px 18px;
+      border-radius: 28px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #d85a82, #a83f72);
+      box-shadow: 0 14px 35px #a83f7240;
+    }
+    .gift h2 { margin: 0 0 8px; }
+    .gift p { line-height: 1.65; font-size: 16px; margin: 0 auto 24px; max-width: 520px; }
+
+    button {
+      border: none;
+      border-radius: 100px;
+      background: white;
+      color: var(--rose-dark);
+      padding: 16px 27px;
+      font: inherit;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 18px #60233d35;
+      transition: transform .2s, box-shadow .2s;
+    }
+    button:hover { transform: translateY(-3px); box-shadow: 0 11px 23px #60233d45; }
+    button:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+
+    .letter {
+      display: none;
+      background: #fffdfc;
+      color: var(--ink);
+      margin: 27px auto 0;
+      padding: clamp(22px, 5vw, 38px);
+      max-width: 640px;
+      border-radius: 22px;
+      text-align: left;
+      box-shadow: 0 8px 26px #64253c2b;
+      font-size: 17px;
+      line-height: 1.85;
+      animation: appear .55s ease both;
+    }
+    .letter.show { display: block; }
+    .letter p { margin: 0 0 16px; }
+    .letter p:last-child { margin-bottom: 0; }
+    .signature { color: var(--rose-dark); font-weight: bold; text-align: right; }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(17px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .joke-section {
+      margin: 24px auto 0;
+      padding: 30px 25px;
+      background: #fffaf4df;
+      border: 1px solid #ffdfc9;
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 12px 35px #be82621c;
+    }
+    .joke-section h2 { margin-top: 7px; }
+    .joke-intro { font-size: 16px; line-height: 1.75; max-width: 650px; margin: 0 auto 19px; }
+    .joke-card {
+      padding: 21px;
+      background: #fff0f1;
+      border-radius: 19px;
+      line-height: 1.75;
+      font-size: 18px;
+      max-width: 620px;
+      margin: 0 auto 18px;
+      min-height: 112px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    .joke-button { background: #c44f79; color: white; }
+    .joke-button:focus-visible { outline-color: #c44f79; }
+    .dad-note {
+      max-width: 620px;
+      background: #fff;
+      border: 1px dashed #df96a7;
+      border-radius: 18px;
+      padding: 17px 20px;
+      margin: 19px auto 0;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    footer { text-align: center; font-size: 14px; color: #996778; padding: 30px 15px 5px; }
+
+    .confetti {
+      position: fixed;
+      top: -20px;
+      width: 10px;
+      height: 15px;
+      z-index: 20;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to { transform: translate3d(var(--drift), 110vh, 0) rotate(720deg); opacity: 0; }
+    }
+
+    @media (max-width: 650px) {
+      .container { padding-top: 25px; }
+      .main-card { border-radius: 23px; }
+      .cards { grid-template-columns: 1fr; }
+      .reason { padding: 17px 20px; }
+      .message { font-size: 16px; }
+      .letter { font-size: 16px; }
+      .h3, .h4 { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+  <span class="heart h1">♥</span>
+  <span class="heart h2">♥</span>
+  <span class="heart h3">♥</span>
+  <span class="heart h4">♥</span>
+
+  <main class="container">
+    <div class="eyebrow">13-ноябрь, 2026-жыл • Өзгөчө күн</div>
+    <section class="hero">
+      <div class="flowers" aria-hidden="true">💐</div>
+      <h1>Туулган күнүңүз<br><span>менен, апаке!</span> ❤️</h1>
+      <p class="lead">Бүгүн дүйнөдөгү эң мээримдүү, эң камкор жана эң кымбат адамдын майрамы. Албетте, бул — СИЗ! 💖</p>
+      <div class="date">✨ Бул сайт атайын сиз үчүн, апа! ✨</div>
+    </section>
+
+    <section class="main-card">
+      <div class="tiny-title">Чын жүрөктөн</div>
+      <h2>Баары үчүн рахмат, апа! 💗</h2>
+      <p class="message">Мага берген мээримиңиз, колдооңуз, акылыңыз жана түгөнбөгөн сабырыңыз үчүн чоң рахмат. Кээде тентектик кылсам да, мени дайыма түшүнгөнгө аракет кыласыз. Сиз бар үчүн биздин үй жылуу, жашообуз жарык. Мен сизди аябай жакшы көрөм!</p>
+      <div class="divider"></div>
+      <div class="tiny-title">Апамдын үч супер күчү</div>
+      <div class="cards">
+        <div class="reason">
+          <div class="emoji">💖</div>
+          <h3>Чексиз мээрим</h3>
+          <p>Бир эле сөзүңүз менен көңүлүмдү көтөрөсүз.</p>
+        </div>
+        <div class="reason">
+          <div class="emoji">🍲</div>
+          <h3>Даамдуу тамак</h3>
+          <p>Дүйнөдөгү мыкты ресторан да апамдын тамагына жетпейт!</p>
+        </div>
+        <div class="reason">
+          <div class="emoji">⏰</div>
+          <h3>Супер ойготкуч</h3>
+          <p>Он будильник ойгото албаса да, апам бир чакырганда турам! 😅 Деп кой!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="joke-section">
+      <div class="tiny-title">Бир аз күлкү 😄</div>
+      <h2>Апа, күлүп коюңуз!</h2>
+      <p class="joke-intro">Бүгүн сизге капа болууга болбойт. Бүгүнкү милдетиңиз — эс алуу, жылмайуу жана белектерди кабыл алуу! 🌷</p>
+      <div class="joke-card" id="jokeText" aria-live="polite">Апа, «беш мүнөттө турам» деген сөзүмдү укканыңызга 17 жыл болду окшойт... Рахмат, дагы эле ишенип келесиз! 😂</div>
+      <button class="joke-button" id="jokeBtn" type="button">😂 Дагы тамаша!</button>
+      <div class="dad-note">
+        <strong>Апа, дагы бир кичинекей өтүнүчүм бар! 🤭</strong><br>
+        Атам экөөңүздөр көп урушпай, дайыма ынтымакта болуп жүрүңүздөрчү. Эгер талашып калсаңыздар, ким туура экенин менден сурабагыла — экөөңүздөр тең мага кымбатсыздар! 😄❤️<br>
+        <strong>Атама да билдирүү:</strong> апама гүлдү көбүрөөк, талашты азыраак бериңиз! 💐😂
+      </div>
+    </section>
+
+    <section class="gift">
+      <h2>Сизге өзгөчө белегим бар! 🎁</h2>
+      <p>Азырынча кымбат белек алып бере албасам да, бул сайтты өзүмдүн сүйүүм менен жасадым. Төмөнкү баскычты басыңыз! 💌</p>
+      <button type="button" id="surpriseBtn" aria-controls="letter" aria-expanded="false">💌 Катымды ачыңыз</button>
+      <div class="letter" id="letter">
+        <p><strong>Менин сүйүктүү апакем! 💖</strong></p>
+        <p>Туулган күнүңүз менен! Ден соолугуңуз чың, өмүрүңүз узун, жүзүңүз дайыма күлкүгө толсун. Кайгыдан алыс болуп, кубанычка бөлөнүп жүрүңүз.</p>
+        <p>Мен ар дайым сизди сыйлап, сүйүнтүп, сыймыктандырган уул болууга аракет кылам. Кээде «азыр» деп коюп, ишти кечиктирип койгонум үчүн кечирип коюңуз. 😅</p>
+        <p>Атам экөөңүздөр ар дайым бири-бириңиздерге жөлөк болуп, ынтымакта, бактылуу жашагыла. Үйүбүздө уруштан көрө күлкү, түйшүктөн көрө кубаныч көп болсун! ❤️</p>
+        <p>Мен чоңойсом да, сиз үчүн баягы эле балаңыз бойдон калам. Бирок бир күнү сизге чоң белектерди тартуулайм деп үмүттөнөм. Азырынча — жүрөгүмдөн чыккан ушул кичинекей белек.</p>
+        <p><strong>Сиз мен үчүн дүйнөдөгү эң жакшы апасыз. Сизди аябай жакшы көрөм! ❤️</strong></p>
+        <p class="signature">Сүйүү менен, уулуңуз ❤️</p>
+      </div>
+    </section>
+
+    <footer>Апакеме чоң сүйүү менен жасалды ♥ 13.11.2026</footer>
+  </main>
+
+  <script>
+    const button = document.getElementById('surpriseBtn');
+    const letter = document.getElementById('letter');
+
+    button.addEventListener('click', function () {
+      const isOpen = letter.classList.toggle('show');
+      button.setAttribute('aria-expanded', String(isOpen));
+      button.textContent = isOpen ? '💗 Кат ачылды!' : '💌 Катымды ачыңыз';
+      if (isOpen) {
+        celebrate();
+        letter.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+
+    const jokes = [
+      'Апа, «беш мүнөттө турам» деген сөзүмдү укканыңызга 17 жыл болду окшойт... Рахмат, дагы эле ишенип келесиз! 😂',
+      'Апамдын «Кайдасың?» деген суроосуна GPS да жетпейт. Бир мүнөт кечиксем, дароо билдирүү келет! 📍😄',
+      'Апа, бүгүн идиш-аякты мен жууйм! Бул сөздүн скриншотун сактап коюңуз, эртең далил керек болуп калбасын! 🍽️😂',
+      'Атам экөөңүздөрдүн ынтымагыңыздар бекем болсун! Үйдө ким башчы экенин талашпай эле коёлу... баарыбыз билебиз! 👑😄',
+      'Апам: «Тойдуңбу?» Мен: «Ооба!» Апам: «Анда дагы бир аз жеп ал». Бул — чыныгы мээрим! 🍲❤️',
+      'Эң жакшы белек — апамдын жылмаюусу. Бирок, апа, тортту да унутпайлы! 🎂😋'
+    ];
+    let currentJoke = 0;
+    const jokeBtn = document.getElementById('jokeBtn');
+    const jokeText = document.getElementById('jokeText');
+    jokeBtn.addEventListener('click', function () {
+      currentJoke = (currentJoke + 1) % jokes.length;
+      jokeText.textContent = jokes[currentJoke];
+    });
+
+    function celebrate() {
+      const colors = ['#ffd36e', '#ff86b0', '#ffffff', '#eab2e9', '#ffb097'];
+      for (let i = 0; i < 85; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+        piece.style.setProperty('--drift', (Math.random() * 260 - 130) + 'px');
+        piece.style.animationDuration = (2.8 + Math.random() * 2.3) + 's';
+        piece.style.animationDelay = Math.random() * .6 + 's';
+        document.body.appendChild(piece);
+        piece.addEventListener('animationend', function () { piece.remove(); });
+      }
+    }
+  </script>
+</body>
+</html>
